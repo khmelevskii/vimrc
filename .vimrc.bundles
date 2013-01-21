@@ -1,0 +1,90 @@
+" Dependens =================================================================
+Bundle 'gmarik/vundle'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'Shougo/vimproc'
+
+" Use my fork bundles if available ==========================================
+if filereadable(expand("~/.vim/.vimrc.bundles.fork"))
+	source ~/.vim/.vimrc.bundles.fork
+endif
+
+" General ===================================================================
+Bundle 'scrooloose/nerdtree'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-surround'
+Bundle 'spf13/vim-autoclose'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/sessionman.vim'
+Bundle 'matchit.zip'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'vim-scripts/restore_view.vim'
+Bundle 'bufexplorer.zip'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'kshenoy/vim-signature'
+Bundle 'mileszs/ack.vim'
+Bundle 'embear/vim-localvimrc'
+Bundle 'dbakker/vim-projectroot'
+Bundle 'PAntoine/TimeKeeper'
+Bundle 'sjl/vitality.vim'
+
+" General Programming =======================================================
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'mattn/gist-vim'
+Bundle 'Align'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'ctags.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'toritori0318/vim-redmine'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'AndrewRadev/switch.vim'
+
+" Snippets & AutoComplete ===================================================
+Bundle 'Shougo/neocomplcache'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/snipmate-snippets'
+Bundle 'ervandew/supertab'
+
+" Vim
+Bundle 'L9'
+
+" PHP ========================================================================
+Bundle 'spf13/PIV'
+Bundle 'techlivezheng/tagbar-phpctags'
+
+" JavaScript =================================================================
+Bundle 'JSON.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'itspriddle/vim-jquery'
+Bundle 'teramako/jscomplete-vim'
+Bundle 'myhere/vim-nodejs-complete'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'jpalardy/vim-slime'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'mklabs/vim-backbone'
+
+" HTML/CSS ===================================================================
+Bundle 'xml.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'wavded/vim-stylus'
+Bundle 'othree/html5.vim'
+Bundle 'tpope/vim-haml'
+Bundle 'mattn/zencoding-vim'
+Bundle 'gregsexton/MatchTag'
+Bundle 'nono/vim-handlebars'
+
+" SQL
+Bundle 'SQLUtilities'
+Bundle 'dbext.vim'
+Bundle 'SQLComplete.vim'
+Bundle 'exu/pgsql.vim'
+
+" Misc =======================================================================
+Bundle 'hallison/vim-markdown'
+Bundle 'Shougo/vimshell'
