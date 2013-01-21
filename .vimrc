@@ -255,7 +255,7 @@ nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<C
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-" set completeopt=menu,preview,longest
+set completeopt=menu,preview,longest
 
 " ===========================================================================
 " Plugin settings
