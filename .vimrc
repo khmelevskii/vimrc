@@ -506,7 +506,10 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠' 
 let g:syntastic_javascript_checker="jshint"
 
-" sessionman ================================================================
+" Numbers ====================================================================
+nnoremap <F3> :NumbersToggle<CR>
+
+" sessionman =================================================================
 set sessionoptions=blank,buffers,folds,resize,tabpages,winsize
 nmap <leader>sl :SessionList<CR>
 nmap <leader>ss :SessionSave<CR>
