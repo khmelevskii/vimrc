@@ -1,0 +1,8 @@
+" General ===================================================================
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'khmelevskii/TimeKeeper'
+
+" SQL ========================================================================
+Bundle 'khmelevskii/dbext.vim'
+Bundle 'khmelevskii/SQLComplete.vim'
+Bundle 'khmelevskii/pgsql.vim'
