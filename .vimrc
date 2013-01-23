@@ -133,8 +133,8 @@ set title
 
 " set status line
 set laststatus=2
-let g:Powerline_symbols='fancy'
-let g:Powerline_stl_path_style = 'filename'
+" let g:Powerline_symbols='fancy'
+" let g:Powerline_stl_path_style = 'filename'
 
 " C-e - удаление текущей строки
 nmap <c-e> "_dd

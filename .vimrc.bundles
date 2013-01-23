@@ -52,7 +52,6 @@ Bundle 'ervandew/supertab'
 Bundle 'L9'
 
 " PHP ========================================================================
-Bundle 'spf13/PIV'
 Bundle 'techlivezheng/tagbar-phpctags'
 
 " JavaScript =================================================================

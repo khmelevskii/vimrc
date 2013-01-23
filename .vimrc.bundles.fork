@@ -1,6 +1,9 @@
 " General ===================================================================
 Bundle 'khmelevskii/TimeKeeper'
 
+" PHP ========================================================================
+Bundle 'khmelevskii/PIV'
+
 " SQL ========================================================================
 Bundle 'khmelevskii/dbext.vim'
 Bundle 'khmelevskii/SQLComplete.vim'
