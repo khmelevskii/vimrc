@@ -1,5 +1,4 @@
 " General ===================================================================
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'khmelevskii/TimeKeeper'
 
 " SQL ========================================================================

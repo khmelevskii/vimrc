@@ -19,8 +19,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/sessionman.vim'
 Bundle 'matchit.zip'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'vim-scripts/restore_view.vim'
+" Bundle 'myusuf3/numbers.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'kshenoy/vim-signature'
@@ -28,6 +27,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'embear/vim-localvimrc'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'sjl/vitality.vim'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " General Programming =======================================================
 Bundle 'scrooloose/syntastic'

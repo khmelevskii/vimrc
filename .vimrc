@@ -22,11 +22,9 @@ let g:solarized_termtrans=1
 " let g:solarized_contrast="high"
 " let g:solarized_visibility="high"
 " let g:solarized_termcolors=256
-" let g:solarized_termtrans = 1
 " let g:solarized_degrade = 1 
 " let g:solarized_bold = 1
 " let g:solarized_underline = 1
-" let g:solarized_contrast='normal'
 
 " Подсветка синтаксиса
 syntax on
@@ -44,12 +42,13 @@ set hidden        " allow buffer to be put in the background without saving
 
 set clipboard=unnamed " one mac and windows, use * register for copy-paste
 
+autocmd VimEnter,BufNewFile,BufRead * set foldmethod=manual
 set wildmenu      " show autocomplete menus
 set wildmode=list:longest,list:full " completion menu behaves more like cli
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set wildignore+=*.o,tags,Session.vim
 
-set iskeyword+=$-_         " added word chars
+set iskeyword+=$,_         " added word chars
 
 " Most prefer to automatically switch to the current file directory when
 " a new buffer is opened; to prevent this behavior, add
@@ -136,9 +135,6 @@ set title
 set laststatus=2
 let g:Powerline_symbols='fancy'
 let g:Powerline_stl_path_style = 'filename'
-if filereadable(expand("~/.vim/bundle/powerline/powerline/bindings/vim/source_plugin.vim"))
-  source ~/.vim/bundle/powerline/powerline/bindings/vim/source_plugin.vim
-endif
 
 " C-e - удаление текущей строки
 nmap <c-e> "_dd
@@ -192,9 +188,12 @@ nmap <C-k> [e
 vmap <C-k> [egv
 vmap <C-j> ]egv
 
-nnoremap Y y$                  " map Y to match C and D behavior
-nmap gy ggVGy                  " yank entire file (global yank)
-nmap vil ^v$		       " select current line
+" map Y to match C and D behavior
+nnoremap Y y$                  
+" yank entire file (global yank)
+nmap gy ggVGy                  
+" visual select current line
+nmap vil ^v$h
 
 " pull word under cursor into lhs of a substitute (for quick search and replace)
 nmap <leader>sr :%s#\<<C-r>=expand("<cword>")<CR>\>#
@@ -235,14 +234,6 @@ nmap <leader>d diw
 " save readonly files with w!!
 cmap w!! w !sudo tee % >/dev/null
 
-" Some helpers to edit mode
-" http://vimcasts.org/e/14
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
-
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
@@ -255,7 +246,7 @@ nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<C
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menu,preview,longest
+" set completeopt=menu,preview,longest
 
 " ===========================================================================
 " Plugin settings
@@ -289,14 +280,6 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
-
-" OmniComplete =============================================================
-if has("autocmd") && exists("+omnifunc")
-    autocmd Filetype *
-        \if &omnifunc == "" |
-        \setlocal omnifunc=syntaxcomplete#Complete |
-        \endif
-endif
 
 " fugitive ===================================================================
 nnoremap <silent> <leader>ga :Gwrite<cr>
@@ -547,6 +530,10 @@ let g:tagbar_sort = 0
 
 " PIV ========================================================================
 let g:DisableAutoPHPFolding = 1
+au BufNewFile,BufRead *.php let php_folding=0
+au BufNewFile,BufRead *.php let php_htmlInStrings=0
+au BufNewFile,BufRead *.php let php_noShortTags=1
+au BufNewFile,BufRead *.php let php_strip_whitespace=0
 
 " CTags ====================================================================
 let g:ctags_statusline=1 
@@ -634,12 +621,13 @@ au BufNewFile,BufRead *.sql :setf pgsql<cr>:call sqlcomplete#ResetCacheSyntax()<
 nmap <leader>shp :VimShellPop<cr>
 nmap <leader>sht :VimShellTab<cr>
 
+
 " SnipMate ===================================================================
 imap <c-a> <c-r>=ShowAvailableSnips()<cr>
 
 
 " strip all trailing whitespace 
-fun! <SID>StripTrailingWhitespaces()
+fun! StripTrailingWhitespaces()
   let l = line(".")
   let c = col(".")
   %s/\s\+$//e
@@ -647,7 +635,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType php,javascript,python,xml,yml,coffee,css,stylus autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType php,javascript,python,xml,yml,coffee,css,stylus autocmd BufWritePre <buffer> call StripTrailingWhitespaces()
 
 " JsBeautify =================================================================
 autocmd FileType javascript noremap <buffer>  <leader>jb :call JsBeautify()<cr>
@@ -670,7 +658,6 @@ let g:node_usejscomplete=1
 
 " Switch =====================================================================
 nnoremap - :Switch<cr>
-
 
 " Functions ==================================================================
 " Custom fold line format (short)
