@@ -1,8 +1,13 @@
-" General ===================================================================
+" General ====================================================================
 Bundle 'khmelevskii/TimeKeeper'
 
+" JavaScript =================================================================
+Bundle 'khmelevskii/vim-javascript'
+
 " PHP ========================================================================
-Bundle 'khmelevskii/PIV'
+if has("gui_running")
+  Bundle 'khmelevskii/PIV'
+endif
 
 " SQL ========================================================================
 Bundle 'khmelevskii/dbext.vim'

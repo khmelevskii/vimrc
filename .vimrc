@@ -18,9 +18,9 @@ endif
 
 " Подключаем темную тему Solarized
 colorscheme solarized 
-let g:solarized_termtrans=1
-" let g:solarized_contrast="high"
-" let g:solarized_visibility="high"
+" let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 " let g:solarized_termcolors=256
 " let g:solarized_degrade = 1 
 " let g:solarized_bold = 1
@@ -55,10 +55,10 @@ set iskeyword+=$,_         " added word chars
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 " show line number, cursor position
-set number
+set nonumber
 set ruler         " Показываем положение курсора все время
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
-set cursorline    " highlights the cursor line
+set nocursorline    " highlights the cursor line
 set nowrap
 set linebreak              " this will not break whole words while wrap is enabled
 " set showbreak=…
@@ -72,8 +72,6 @@ set incsearch              " go to search results as typing
 set ignorecase             " ignore case when searching
 set smartcase              " but case-sensitive if expression contains a capital letter.
 set gdefault               " assume global when searching or substituting
-set magic                  " set magic on, for regular expressions
-set showmatch              " show matching brackets when text indicator is over them
 au SessionLoadPost  * set suffixesadd=.styl,.css,.js,.php,.tpl,.html,.coffee,.haml,.sql
 nmap gF :tab split <Bar> normal! gf<cr>
 
@@ -99,13 +97,7 @@ let g:lasttab = 1
 nmap <Leader>l :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
-" be quiet
-set visualbell             " don't beep
-set noerrorbells           " don't beep
-set noeb vb t_vb=          " disable audio and visual bells
-au GUIEnter * set vb t_vb=
-
-" do not create swap files!
+" do not create backup files!
 set nobackup
 set nowritebackup
 set noswapfile
@@ -115,26 +107,24 @@ if v:version >= 703
   set undodir=$HOME/.vim/.undo
   set undofile
   set undolevels=1000
-  set undoreload=10000
+  set undoreload=1000
   set colorcolumn=80    " show a right margin column
 endif
 
-set history=100 " create a larger history
+set history=200 " create a larger history
 
 set pastetoggle=<F7>
 set listchars=tab:‣\ ,trail:-,extends:#,nbsp:%,eol:¬
 
 " show editing mode
 set showmode
-set tabpagemax=15               " only show 15 tabs
+set tabpagemax=10               " only show 15 tabs
 
 " set the title within xterm as well
 set title
 
 " set status line
 set laststatus=2
-" let g:Powerline_symbols='fancy'
-" let g:Powerline_stl_path_style = 'filename'
 
 " C-e - удаление текущей строки
 nmap <c-e> "_dd
@@ -244,9 +234,28 @@ nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<C
 "save on focus lost
 :au FocusLost * :wa
 
+" be quiet
+set visualbell             " don't beep
+set noerrorbells           " don't beep
+set noeb vb t_vb=          " disable audio and visual bells
+au GUIEnter * set vb t_vb=
+
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-" set completeopt=menu,preview,longest
+set completeopt=menuone,menu,longest
+
+" ===========================================================================
+" GUI settongs
+" ===========================================================================
+set guifont=Menlo\ for\ Powerline:h14
+set guioptions-=L
+set guioptions-=r
+set guioptions-=T
+set linespace=2
+hi SignColumn guibg=#73642
+hi Error guibg=#73642
+
+
 
 " ===========================================================================
 " Plugin settings
@@ -505,8 +514,8 @@ nmap <leader>bb :BufExplorer<CR>
 nmap <c-f> :Ack 
 
 " Javascript ==============================================================
-let g:javascript_ignore_javaScriptdoc = 1
-let g:html_indent_inctags = "html,body,head,tbody"
+" let g:javascript_ignore_javaScriptdoc = 1
+" let g:html_indent_inctags = "html,body,head,tbody"
 
 " CoffeeScript ============================================================
 " au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
@@ -527,6 +536,7 @@ imap <f8> <esc>:TagbarToggle<cr>
 let g:tagbar_width=28
 let g:tagbar_autoshowtag = 1
 let g:tagbar_sort = 0
+let g:tagbar_foldlevel = 1
 
 " PIV ========================================================================
 let g:DisableAutoPHPFolding = 1
@@ -561,6 +571,7 @@ let g:neocomplcache_disable_auto_complete=1
 " let g:neocomplcache_max_list = 15
 " let g:neocomplcache_force_overwrite_completefunc = 1
 " let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
+let g:SuperTabClosePreviewOnPopupClose = 1
 " Слова откуда будем завершать
 set complete=""
 " Из текущего буфера
