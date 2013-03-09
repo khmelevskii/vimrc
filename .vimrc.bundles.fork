@@ -1,6 +1,9 @@
 " General ====================================================================
 Bundle 'khmelevskii/TimeKeeper'
 
+" Programming ================================================================
+Bundle 'khmelevskii/vim-redmine'
+
 " JavaScript =================================================================
 Bundle 'khmelevskii/vim-javascript'
 

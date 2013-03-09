@@ -12,10 +12,10 @@ endif
 
 " General ===================================================================
 Bundle 'scrooloose/nerdtree'
+Bundle 'ivalkeen/nerdtree-execute'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
-Bundle 'spf13/vim-autoclose'
-Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-repeat'
 Bundle 'vim-scripts/sessionman.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bufexplorer.zip'
@@ -24,7 +24,12 @@ Bundle 'kshenoy/vim-signature'
 Bundle 'mileszs/ack.vim'
 Bundle 'embear/vim-localvimrc'
 Bundle 'dbakker/vim-projectroot'
-Bundle 'sjl/vitality.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'YankRing.vim'
+Bundle 'goldfeld/vim-seek'
+if !has("gui_running")
+  Bundle 'sjl/vitality.vim'
+endif
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " General Programming =======================================================
@@ -34,23 +39,21 @@ Bundle 'tpope/vim-git'
 Bundle 'mattn/gist-vim'
 Bundle 'Align'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'ctags.vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'toritori0318/vim-redmine'
-" Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'AndrewRadev/switch.vim'
+Bundle 'khmelevskii/uwinutils.vim'
+Bundle 'khmelevskii/GitRedmine'
 
 " Snippets & AutoComplete ===================================================
-Bundle 'Shougo/neocomplcache'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/snipmate-snippets'
-Bundle 'ervandew/supertab'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'SirVer/ultisnips'
 
 " Vim
 Bundle 'L9'
 
 " PHP ========================================================================
 Bundle 'techlivezheng/tagbar-phpctags'
+Bundle 'robmiller/vim-movar'
 
 " JavaScript =================================================================
 Bundle 'JSON.vim'
@@ -62,12 +65,12 @@ Bundle 'jpalardy/vim-slime'
 
 " HTML/CSS ===================================================================
 Bundle 'xml.vim'
+Bundle 'tpope/vim-ragtag'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'wavded/vim-stylus'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'mattn/zencoding-vim'
-Bundle 'gregsexton/MatchTag'
 Bundle 'nono/vim-handlebars'
 
 " SQL ========================================================================
