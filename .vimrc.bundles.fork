@@ -1,5 +1,5 @@
 " General ====================================================================
-Bundle 'khmelevskii/TimeKeeper'
+" Bundle 'khmelevskii/TimeKeeper'
 
 " Programming ================================================================
 Bundle 'khmelevskii/vim-redmine'

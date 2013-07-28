@@ -1,10 +1,10 @@
-" Dependens =================================================================
+" " Dependens =================================================================
 Bundle 'gmarik/vundle'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'Shougo/vimproc'
-
+ 
 " Use my fork bundles if available ==========================================
 if filereadable(expand("~/.vim/.vimrc.bundles.fork"))
 	source ~/.vim/.vimrc.bundles.fork
@@ -26,56 +26,61 @@ Bundle 'embear/vim-localvimrc'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'kien/ctrlp.vim'
 Bundle 'YankRing.vim'
-Bundle 'goldfeld/vim-seek'
+" Bundle 'goldfeld/vim-seek'
+Bundle 'terryma/vim-expand-region'
 if !has("gui_running")
   Bundle 'sjl/vitality.vim'
 endif
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-" General Programming =======================================================
+" 
+" " General Programming =======================================================
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
-Bundle 'mattn/gist-vim'
+" Bundle 'mhinz/vim-signify'
+" " Bundle 'airblade/vim-gitgutter'
+" Bundle 'mattn/gist-vim'
 Bundle 'Align'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'majutsushi/tagbar'
+" " Bundle 'majutsushi/tagbar'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'khmelevskii/uwinutils.vim'
 Bundle 'khmelevskii/GitRedmine'
-
-" Snippets & AutoComplete ===================================================
+" Bundle 'jtmkrueger/vim-c-cr'
+" 
+" " Snippets & AutoComplete ===================================================
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
-
-" Vim
+" 
+" " Vim
 Bundle 'L9'
-
-" PHP ========================================================================
-Bundle 'techlivezheng/tagbar-phpctags'
-Bundle 'robmiller/vim-movar'
-
+" 
+" " PHP ========================================================================
+" Bundle 'techlivezheng/tagbar-phpctags'
+" Bundle 'robmiller/vim-movar'
+" 
 " JavaScript =================================================================
 Bundle 'JSON.vim'
 Bundle 'maksimr/vim-jsbeautify'
-Bundle 'teramako/jscomplete-vim'
-Bundle 'myhere/vim-nodejs-complete'
+Bundle 'marijnh/tern_for_vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'jpalardy/vim-slime'
-
-" HTML/CSS ===================================================================
+" 
+" " HTML/CSS ===================================================================
+Bundle 'gcmt/breeze.vim'
 Bundle 'xml.vim'
 Bundle 'tpope/vim-ragtag'
-Bundle 'hail2u/vim-css3-syntax'
+" Bundle 'hail2u/vim-css3-syntax'
 Bundle 'wavded/vim-stylus'
-Bundle 'othree/html5.vim'
+" " Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-haml'
-Bundle 'mattn/zencoding-vim'
+" Bundle 'mattn/zencoding-vim'
 Bundle 'nono/vim-handlebars'
-
-" SQL ========================================================================
+" 
+" " SQL ========================================================================
 Bundle 'SQLUtilities'
-
-" Misc =======================================================================
+" 
+" " Misc =======================================================================
 Bundle 'hallison/vim-markdown'
-Bundle 'Shougo/vimshell'
+" Bundle 'Shougo/vimshell'
+Bundle 'nginx.vim'

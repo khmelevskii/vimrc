@@ -89,9 +89,6 @@ nmap <C-k> [e
 vmap <C-k> [egv
 vmap <C-j> ]egv
 
-" Go to the parent tag in xml or html
-nnoremap <silent> [p :let @a=@"<cr>O<esc>yat<esc>u<c-o>:let @*=@a<cr>:let @"=@a<cr>
-
 " Go to the function definition from her body
 nnoremap <silent> <leader>fd ?^\s*[a-zA-Z0-9_ ]*function <cr>:nohlsearch<cr>
       \ /function<cr>w:nohlsearch<cr> 
@@ -189,6 +186,18 @@ nmap <c-z> :CtrlP<cr>
 " Ack ========================================================================
 nmap <c-f> :Ack 
 
+" Breeze =====================================================================
+nmap <leader>bm :BreezeMatchTag<cr>
+nmap \\i :BreezeJumpF<cr>
+nmap \\o :BreezeJumpB<cr>
+nmap <leader>bn :BreezeNextSibling<cr>
+nmap <leader>bp :BreezePrevSibling<cr>
+nmap <leader>bf :BreezeFirstSibling<cr>
+nmap <leader>bl :BreezeLastSibling<cr>
+nmap <leader>bcf :BreezeFirstChild<cr>
+nmap <leader>bcl :BreezeLastChild<cr>
+nmap <leader>bpr :BreezeParent<cr>
+
 " CoffeeScript ===============================================================
 nmap <leader>cfw :CoffeeCompile watch vert<cr>
 nmap <leader>cfc :CoffeeMake<cr>
@@ -211,6 +220,11 @@ imap <leader>ps <C-\><C-O>:call sqlcomplete#Map('pgsqlStatement')<CR><C-X><C-O>
 nmap <leader>shp :VimShellPop<cr>
 nmap <leader>sht :VimShellTab<cr>
 
+" Tern =======================================================================
+let g:tern_map_keys=1
+let g:tern_show_argument_hints='on_move'
+nmap \te :TernRename<cr>
+
 " JsBeautify =================================================================
 autocmd FileType javascript,html,handlebars 
       \ noremap <buffer>  <leader>jb :call JsBeautify()<cr>
@@ -221,3 +235,11 @@ nmap <leader>tkp :call TimeKeeper_StopTracking()<cr>
 
 " Switch =====================================================================
 nnoremap - :Switch<cr>
+
+" Signify
+let g:signify_disable_by_default = 1
+
+" UwinUtils ===============================================================
+nnoremap <leader>ci :exec g:UwinComponentsInstall()<cr>i
+nnoremap <leader>cu :exec g:UwinComponentsUninstall()<cr>i
+nnoremap gs :FindCssProperty<cr>

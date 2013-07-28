@@ -53,7 +53,7 @@ set wildmode=list:longest,list:full " completion menu behaves more like cli
 set whichwrap=b,s,h,l,<,>,[,]        " Backspace and cursor keys wrap too
 set wildignore+=*.o,tags,Session.vim
 
-set iskeyword+=$,_   " added word chars
+set iskeyword+=$,_,-   " added word chars
 
 set nonumber      " not show line number, cursor position
 set ruler         " Показываем положение курсора все время
@@ -168,6 +168,14 @@ set linespace=2
 hi SignColumn guibg=#73642
 hi Error guibg=#73642
 
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
 
 " ===========================================================================
 " Plugin settings
@@ -210,7 +218,7 @@ let g:gist_use_password_in_gitconfig = 1
 " let g:syntastic_check_on_open=0
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠' 
-let g:syntastic_javascript_checker="jshint"
+" let g:syntastic_javascript_checker="jshint"
 " let g:syntastic_echo_current_error=0
 
 " sessionman =================================================================
@@ -256,10 +264,10 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 
 " UltiSnips ==================================================================
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
-let g:UltiSnipsListSnippets = "<c-a>"
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<c-z>"
+
+" Nginx.vim ==================================================================
+au! BufRead,BufNewFile *.conf set filetype=nginx 
 
 " Слова откуда будем завершать
 set complete=""
@@ -306,13 +314,10 @@ au BufNewFile,BufRead *.sql :setf pgsql<cr>
 " TimeKeeper =================================================================
 let g:TimeKeeperAwayTimeSec = 60
 
-" jscomplete ================================================================= 
-autocmd FileType javascript
-  \ :setl omnifunc=nodejscomplete#CompleteJS
-let g:jscomplete_use = ['dom', 'moz']
-
-" nodejs complete ============================================================
-let g:node_usejscomplete=1
+" Breeze ===================================================================== 
+let g:breeze_hl_color = "DiffChange"
+hi MatchParen ctermfg=3
+hi MatchParen ctermbg=0
 
 " Stylus =====================================================================
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
