@@ -8,6 +8,7 @@ let s:settings.colorscheme = 'solarized'
 let s:settings.plugin_groups = []
 call add(s:settings.plugin_groups, 'core')
 call add(s:settings.plugin_groups, 'web')
+call add(s:settings.plugin_groups, 'tern')
 call add(s:settings.plugin_groups, 'javascript')
 call add(s:settings.plugin_groups, 'db')
 call add(s:settings.plugin_groups, 'scm')
@@ -25,6 +26,7 @@ call add(s:settings.plugin_groups, 'misc')
   call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
   call neobundle#end()
+  let g:neobundle#install_process_timeout=240
 "}}}
 
 " functions {{{
@@ -271,7 +273,7 @@ call add(s:settings.plugin_groups, 'misc')
     "}}}
   endif "}}}
 
-  if count(s:settings.plugin_groups, 'javascript') "{{{
+  if count(s:settings.plugin_groups, 'tern') "{{{
     NeoBundleLazy 'marijnh/tern_for_vim', {
       \ 'autoload': { 'filetypes': ['javascript'] },
       \ 'build': {
@@ -281,6 +283,8 @@ call add(s:settings.plugin_groups, 'misc')
         \ 'windows': 'npm install',
       \ },
     \ }
+  endif "}}}
+  if count(s:settings.plugin_groups, 'javascript') "{{{
     NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
     NeoBundleLazy 'maksimr/vim-jsbeautify', {'autoload':{'filetypes':['javascript']}} "{{{
       nnoremap <leader>fjs :call JsBeautify()<cr>
